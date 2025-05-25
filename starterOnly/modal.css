@@ -162,7 +162,8 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
-  top: 0;
+  /* top: 0; */
+  top: 50.6px; /*corrected to match maquette*/
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -194,6 +195,8 @@ label {
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  /*added margin top*/
+  margin-top: 11px;
 }
 input {
   padding: 8px;
@@ -208,6 +211,20 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+/*corrected the switch on this content*/
+
+.formData span{
+  display:inline;
+}
+
+@media screen and (max-width: 768px) {
+  .formData span{
+  display:none;
+}
+}
+
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -420,7 +437,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  min-width: 424px;top
 }
 .hero-content::after {
   content: "";
@@ -511,6 +528,7 @@ footer {
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
+
   .copyrights {
     margin-top: 50px;
     text-align: center;

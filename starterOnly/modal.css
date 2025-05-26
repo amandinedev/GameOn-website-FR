@@ -33,7 +33,7 @@ img {
 .topnav {
   overflow: hidden;
   /* margin: 3.5%; */
-  margin: 5.5%;/*to match maquette*/
+  margin: 6.5%;/*to match maquette*/
 
 }
 .header-logo {
@@ -424,7 +424,8 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  /* min-height: 93vh; */
+  min-height: 60vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -449,7 +450,7 @@ input[data-error]::after {
   height: 100%;
   background: #232323;
   position: absolute;
-  right: -80px;
+  right: -82px;
   top: 0;
 }
 .hero-content > * {
@@ -477,12 +478,17 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
+  position: relative;
 }
 .hero-img img {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   display: block;
   padding: 0;
+  /* to avoid image deformation */
+  position: absolute;
+  right: 0;
+  z-index: -1;
 }
 .copyrights {
   color: #fe142f;
@@ -499,10 +505,21 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+@media screen and (max-width: 1010px) {
+
+.hero-section {
+min-height: 53vh;
+}
+.hero-headline {
+    font-size: 4.5rem;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 93vh;/*to get image full size*/
   }
   .hero-content {
     background: #fff;
@@ -525,8 +542,11 @@ footer {
     
   }
   .hero-img img {
+    width: 100%;/*to match maquette*/
     border-radius: 10px;
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -554,7 +574,6 @@ footer {
   width: 100%; 
   font-size: 0.82rem; /*to match maquette*/
   }
-}
 
 .hero-content{
   /*to solve text cutted on small formats*/
@@ -564,6 +583,7 @@ footer {
   width: 100%;
   box-sizing: border-box;
   padding: 9px; /* to match maquette*/
+}
 }
 
 @keyframes modalopen {

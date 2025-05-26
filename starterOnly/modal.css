@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -32,7 +32,9 @@ img {
 
 .topnav {
   overflow: hidden;
-  margin: 3.5%;
+  /* margin: 3.5%; */
+  margin: 5.5%;/*to match maquette*/
+
 }
 .header-logo {
     float: left;
@@ -101,7 +103,8 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* margin-top: -15px;  */
+    /* turned off to align icon */
   }
 } 
 
@@ -217,7 +220,6 @@ input {
 }
 
 /*corrected the switch on this content*/
-
 .formData span{
   display:inline;
 }
@@ -435,13 +437,15 @@ input[data-error]::after {
   margin-bottom: 10px;
 }
 .hero-content {
+  display: flex;
+  flex-direction: column;
   padding: 51px 67px;
   grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;top
+  min-width: 424px;
 }
 .hero-content::after {
   content: "";
@@ -522,6 +526,7 @@ footer {
   .hero-text {
     width: unset;
     font-size: 1.5rem;
+    
   }
   .hero-img img {
     border-radius: 10px;
@@ -537,6 +542,32 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+}
+
+@media screen and (max-width:540px) {
+.hero-headline {
+  /* to solve text cutted on small formats*/
+  display: flex;
+  width: 100%; 
+  font-size: 2.5rem; /*to match maquette*/
+  }
+
+.hero-text {
+  /*to solve text cutted on small formats*/
+  display: flex;
+  width: 100%; 
+  font-size: 0.82rem; /*to match maquette*/
+  }
+}
+
+.hero-content{
+  /*to solve text cutted on small formats*/
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px; /* to match maquette*/
 }
 
 @keyframes modalopen {

@@ -149,7 +149,7 @@ main {
   font-size: 16px;
 }
 
-.button:hover {
+.button,.btn-submit:hover {
   background: #3876ac;
 }
 
@@ -333,6 +333,33 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+/* modal form validation */
+.content-validation {
+  display: none;
+  height: 775.233px;
+}
+
+.modal-body-validation {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 705.633px;
+}
+
+.modal-body-validation p {
+  margin-bottom: 60%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+;
+}
+
+/* .btn-close-signup {
+} */
+
+
 /* custom select styles */
 .custom-select {
   position: relative;

@@ -103,6 +103,32 @@ function validateQuantity(){
 return true;
 }
 
+/*function validateLocation(){
+   //get location span
+  const locationError = document.querySelector("location-error");
+  // get all location checkboxes
+  const locationList = document.querySelectorAll('input[name="location"]');
+  // Clear any previous error messages
+  // if (locationError.classList.contains("data-error-visible")){
+  //   locationError.classList.remove("data-error-visible");
+  //   locationError.classList.add("hidden");
+  // }
+  // Add event listeners for each location checkbox
+  locationList.forEach(checkbox => {
+  checkbox.addEventListener('checked', function() {
+    if (!this.checked){
+      // If checkbox is not checked, return false
+      return false;
+    };
+  });
+  //remove class hidden from span to show error message
+      locationError.classList.add("data-error-visible");
+      locationError.classList.remove("hidden");
+});
+return true;      
+};
+*/
+
 //function to validate the form
 function validate() {
 let firsNameValid=validateFirstName();
@@ -110,8 +136,9 @@ let lastNameValid=validateLastName();
 let emailValide = validateEmail();
 let birthdateValid=validateBirthdate();
 let quantityValid=validateQuantity();
+// let locationValid=validateLocation();
 
-  if (firsNameValid && lastNameValid && emailValide && birthdateValid && quantityValid) {
+  if (firsNameValid && lastNameValid && emailValide && birthdateValid && quantityValid /*&& locationValid*/) {
     return true;  
   }
 }

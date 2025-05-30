@@ -11,7 +11,9 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const submitBtn = document.querySelector(".btn-submit");
-const closeBtn = document.querySelector(".btn-close-signup");
+const closeBtn = document.querySelector(".btn-close");
+const closeBtnTop1 = document.querySelector(".btn-close-top1");
+const closeBtnTop2 = document.querySelector(".btn-close-top2");
 const modalContent = document.querySelector(".content");
 const modalContentValidation = document.querySelector(".content-validation");
 const formData = document.querySelectorAll(".formData");
@@ -170,9 +172,13 @@ document.addEventListener('submit', (event) =>{
 };
 });
 
-// close modal form
-closeBtn.addEventListener("click", closeModal);
+// close modal form 
 function closeModal() {
   modalContentValidation.style.display = "none";
   modalbg.style.display = "none";
 }
+
+closeBtnTop1.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);
+closeBtnTop2.addEventListener("click", closeModal);
+

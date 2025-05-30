@@ -294,6 +294,7 @@ input {
 }
 .close {
   position: absolute;
+  z-index: 2;
   right: 15px;
   top: 15px;
   width: 32px;
@@ -317,6 +318,20 @@ input {
 .close:after {
   transform: rotate(-45deg);
 }
+
+.btn-close-top:hover{
+ position: absolute;
+    z-index: 0;
+    right: 0;
+    top: 0;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 10px;
+    height: 60px;
+    width: 60px;
+    padding:1px;
+}
+
 .btn-submit,.btn-signup {
   background: #fe142f;
   display: block;
@@ -350,10 +365,6 @@ input {
   font-weight: 400;
 ;
 }
-
-/* .btn-close-signup {
-} */
-
 
 /* custom select styles */
 .custom-select {

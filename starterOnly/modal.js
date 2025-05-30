@@ -123,6 +123,24 @@ function validateLocation(){
 return true;      
 };
 
+function validateTerms(){
+  // get terms span
+  const termsError = document.querySelector(".terms-error");
+  // Clear any previous error messages*/
+  if (termsError.classList.contains("data-error-visible")){
+    termsError.classList.remove("data-error-visible");
+    termsError.classList.add("hidden");
+  }
+  // if no checkbox is checked, show error message
+  const checkbox1 = document.getElementById('checkbox1');
+  if (checkbox1.checked === false){
+    termsError.classList.add("data-error-visible");
+    termsError.classList.remove("hidden");
+    return false;
+  };
+return true;      
+};
+
 //function to validate the form
 function validate() {
 let firsNameValid=validateFirstName();
@@ -131,36 +149,12 @@ let emailValide = validateEmail();
 let birthdateValid=validateBirthdate();
 let quantityValid=validateQuantity();
 let locationValid=validateLocation();
+let termsValid=validateTerms();
 
-  if (firsNameValid && lastNameValid && emailValide && birthdateValid && quantityValid && locationValid) {
+  if (firsNameValid && lastNameValid && emailValide && birthdateValid && quantityValid && locationValid && termsValid) {
     return true;  
   }
 }
-
-
-
- 
-
-
-  
-
-
-
-
-// //get checkbox1 and checkbox2 entries
-// const checkboxList = document.querySelectorAll('input[type="checkbox"]');
-// console.log(checkboxList);
-// let checkboxChecked = '';
-// // Add event listeners for each location checkbox
-// checkboxList.forEach(checkbox => {
-//   checkbox.addEventListener('change', function() {
-//     // If checkbox is checked, update the value
-//     if (this.checked) {
-//       checkboxChecked = this.id;
-//       console.log(checkboxChecked);
-//     }
-//   });
-// });
 
 // launch validate layout
 function validateModal() {
@@ -175,7 +169,6 @@ document.addEventListener('submit', (event) =>{
         validateModal();  // Show success message
 };
 });
-
 
 // close modal form
 closeBtn.addEventListener("click", closeModal);

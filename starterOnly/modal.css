@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -36,6 +36,7 @@ img {
 }
 .header-logo {
     float: left;
+    padding-left:5px;
 }
 .logo{
   width: auto;
@@ -52,7 +53,7 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: Roboto, sans-serif;
 }
 
@@ -81,11 +82,28 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .main-navbar {
+    /* float: none; */
+    width: 100%; 
+    /* padding-top: 60px; */
+  }
+  .topnav{
+    margin: 6.5%;/*to match maquette*/
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -50.5px; 
+  }
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
+    margin-top: 0;
   }
   .topnav.responsive a {
     float: none;
@@ -93,17 +111,6 @@ img {
     text-align: left;
   }
 }
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -166,7 +173,8 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
-  top: 0;
+  /* top: 0; */
+  top: 50.6px; /*corrected to match maquette*/
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -198,6 +206,8 @@ label {
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
+  /*added margin top*/
+  margin-top: 11px;
 }
 input {
   padding: 8px;
@@ -212,6 +222,19 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+/*corrected the switch on this content*/
+.formData span{
+  display:inline;
+}
+
+@media screen and (max-width: 768px) {
+  .formData span{
+  display:none;
+}
+}
+
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -409,7 +432,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 89vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -424,7 +447,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  min-width: 435px;
 }
 .hero-content::after {
   content: "";
@@ -432,7 +455,7 @@ input[data-error]::after {
   height: 100%;
   background: #232323;
   position: absolute;
-  right: -80px;
+  min-width: 435px;
   top: 0;
 }
 .hero-content > * {
@@ -460,12 +483,16 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
+  position: relative;
 }
 .hero-img img {
-  width: 100%;
   height: 100%;
   display: block;
   padding: 0;
+  /* to avoid image deformation */
+  position: absolute;
+  right: 0;
+  z-index: -1;
 }
 .copyrights {
   color: #fe142f;
@@ -482,10 +509,21 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+@media screen and (max-width: 1010px) {
+
+.hero-section {
+min-height: 60.8vh;
+}
+.hero-headline {
+    font-size: 4.5rem;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
     box-shadow: unset;
+    min-height: 53vh;
   }
   .hero-content {
     background: #fff;
@@ -499,26 +537,57 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    /* font-size: 4.5rem; */
     white-space: normal;
   }
   .hero-text {
     width: unset;
     font-size: 1.5rem;
+    
   }
   .hero-img img {
+    width: 100%;/*to match maquette*/
     border-radius: 10px;
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
   }
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
+
   .copyrights {
     margin-top: 50px;
     text-align: center;
   }
+}
+
+@media screen and (max-width:540px) {
+.hero-headline {
+  /* to solve text cutted on small formats*/
+  display: flex;
+  width: 100%; 
+  font-size: 2.4rem; /*to match maquette*/
+  }
+
+.hero-text {
+  /*to solve text cutted on small formats*/
+  display: flex;
+  width: 100%; 
+  font-size: 0.82rem; /*to match maquette*/
+  }
+
+.hero-content{
+  /*to solve text cutted on small formats*/
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px; /* to match maquette*/
+}
 }
 
 @keyframes modalopen {

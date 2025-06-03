@@ -13,6 +13,8 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const submitBtn = document.querySelector(".btn-submit");
 const closeBtn = document.querySelector(".btn-close-signup");
+const closeBtnTop1 = document.querySelector(".btn-close-top1");
+const closeBtnTop2 = document.querySelector(".btn-close-top2");
 const modalContent = document.querySelector(".content");
 const modalContentValidation = document.querySelector(".content-validation");
 const indexTopnav = document.querySelector(".topnav");
@@ -210,4 +212,8 @@ function closeModal() {
   indexFooter.style.display = 'block';
 
 }
+
+closeBtnTop1.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);
+closeBtnTop2.addEventListener("click", closeModal);
 

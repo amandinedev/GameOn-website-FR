@@ -321,6 +321,20 @@ input[data-error]::after {
 .close:after {
   transform: rotate(-45deg);
 }
+
+.btn-close-top:hover{
+ position: absolute;
+    z-index: 0;
+    right: 0;
+    top: 0;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 10px;
+    height: 60px;
+    width: 60px;
+    padding:1px;
+}
+
 .btn-submit,
 .btn-signup {
   background: #fe142f;

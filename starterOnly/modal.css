@@ -37,14 +37,20 @@ img {
 .header-logo {
     float: left;
     padding-left:5px;
+    padding-top: 10px;
 }
 .logo{
   width: auto;
-  height: auto;
+  height: 49.86px;
 }
+
 .main-navbar {
     float: right;
 }
+.navbar-links {
+  margin-top:16px;
+}
+
 .topnav a {
   float: left;
   display: block;
@@ -74,18 +80,12 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
+  .logo{
+  width: auto;
+  height: 23.76px;
   }
-}
-
-@media screen and (max-width: 768px) {
   .main-navbar {
-    /* float: none; */
     width: 100%; 
-    /* padding-top: 60px; */
   }
   .topnav{
     margin: 6.5%;/*to match maquette*/
@@ -94,7 +94,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -50.5px; 
+    margin-top: -49.5px; 
   }
   .topnav.responsive {
     position: relative;
@@ -105,6 +105,7 @@ img {
     top: 0;
     margin-top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -173,8 +174,7 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
-  /* top: 0; */
-  top: 50.6px; /*corrected to match maquette*/
+  top: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -200,14 +200,15 @@ main {
   margin: 15px auto;
 }
 
-label {
+label, p.text-label{
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 13.4px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
   /*added margin top*/
   margin-top: 11px;
+  text-align: left;
 }
 input {
   padding: 8px;
@@ -219,7 +220,7 @@ input {
   padding: 8px;
   width: 100%;
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px;
   height: 48px;
 }
 

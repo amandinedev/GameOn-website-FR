@@ -25,7 +25,7 @@ function launchModal() {
   indexHeroSection.style.display = 'none';
   indexFooter.style.display = 'none';
   // turn off Topnav only on larger screens
-  if (modalbg.offsetWidth >= 768){
+  if (modalbg.offsetWidth >= 500){
   indexTopnav.style.display = 'none';
   }
 }

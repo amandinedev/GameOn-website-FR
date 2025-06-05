@@ -15,7 +15,6 @@ body {
   display: flex;
   flex-direction: column;
   /* background-image: url("background.png"); */
-  /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -60,7 +59,6 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
-  font-size: 1.25rem;
   font-size: 1.25rem;
   font-family: Roboto, sans-serif;
 }
@@ -116,7 +114,6 @@ img {
     display: block;
     text-align: left;
   }
-}
 }
 
 main {
@@ -178,8 +175,8 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
-  /* top: 0; */
-  top: 50.6px; /*corrected to match maquette*/
+  top: 0;
+  /* top: 50.6px; corrected to match maquette */
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -490,7 +487,6 @@ input[data-error]::after {
   position: relative;
   text-align: left;
   min-width: 435px;
-  min-width: 435px;
 }
 .hero-content::after {
   content: "";
@@ -498,7 +494,6 @@ input[data-error]::after {
   height: 100%;
   background: #232323;
   position: absolute;
-  min-width: 435px;
   min-width: 435px;
   top: 0;
 }
@@ -527,7 +522,6 @@ input[data-error]::after {
 }
 .hero-img {
   grid-column: span 8;
-  position: relative;
   position: relative;
 }
 .hero-img img {
@@ -572,7 +566,6 @@ footer {
     display: block;
     box-shadow: unset;
     min-height: 53vh;
-    min-height: 53vh;
   }
   .hero-content {
     background: #fff;
@@ -587,7 +580,6 @@ footer {
   }
   .hero-headline {
     /* font-size: 4.5rem; */
-    /* font-size: 4.5rem; */
     white-space: normal;
   }
   .hero-text {
@@ -599,8 +591,6 @@ footer {
     width: 100%; /*to match maquette*/
     border-radius: 10px;
     margin-top: 40px;
-    position: relative;
-    z-index: 1;
     position: relative;
     z-index: 1;
   }

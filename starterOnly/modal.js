@@ -30,11 +30,11 @@ function launchModal() {
   modalbg.style.display = "block";
   modalContent.style.display = "block";
   // turn off index content when modal launch
-  indexHeroSection.style.display = 'none';
-  indexFooter.style.display = 'none';
+  indexHeroSection.style.display = "none";
+  indexFooter.style.display = "none";
   // turn off Topnav only on larger screens
-  if (modalbg.offsetWidth >= 500){
-  indexTopnav.style.display = 'none';
+  if (modalbg.offsetWidth >= 500) {
+    indexTopnav.style.display = "none";
   }
 }
 
@@ -42,66 +42,69 @@ function launchModal() {
 // show error message on invalid input
 function showErrorMessage(element, message) {
   // add attribute to switch to error style
-element.parentElement.setAttribute("data-error", message)
-element.parentElement.setAttribute("data-error-visible", "true")
+  element.parentElement.setAttribute("data-error", message);
+  element.parentElement.setAttribute("data-error-visible", "true");
 }
 // clear error message on input change
 function clearError(element) {
-  if (element.parentElement.hasAttribute('data-error')){
-  element.parentElement.removeAttribute("data-error");
-  element.parentElement.removeAttribute("data-error-visible");
+  if (element.parentElement.hasAttribute("data-error")) {
+    element.parentElement.removeAttribute("data-error");
+    element.parentElement.removeAttribute("data-error-visible");
   }
 }
 // validate firstname
-function validateFirstName(){
+function validateFirstName() {
   // get firstname entry
   const firstName = document.getElementById("first");
   // Clear any previous error messages
   clearError(firstName);
   // First name validation
-  if (firstName.value.trim().length<2){
-  showErrorMessage(firstName, "Le prénom doit contenir au moins deux caractères");
-  return false;
+  if (firstName.value.trim().length < 2) {
+    showErrorMessage(
+      firstName,
+      "Le prénom doit contenir au moins deux caractères"
+    );
+    return false;
   }
   return true;
 }
 // validate lastname
-function validateLastName(){
+function validateLastName() {
   // get lastname entry
   const lastName = document.getElementById("last");
   // Clear any previous error messages
   clearError(lastName);
   // First name validation
-  if (lastName.value.trim().length<2){
-  showErrorMessage(lastName, "Le nom doit contenir au moins deux caractères");
-  return false;
+  if (lastName.value.trim().length < 2) {
+    showErrorMessage(lastName, "Le nom doit contenir au moins deux caractères");
+    return false;
   }
   return true;
-  }
-// validate email
-function validateEmail(){
-// get email entry
-const email = document.getElementById("email");
-const emailRegex = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+$/;
-// Clear any previous error messages
-clearError(email);
-// email validation
-if (!emailRegex.test(email.value)){
-showErrorMessage(email, "Veuillez entrer une adresse email valide");
-return false;
 }
-return true;
+// validate email
+function validateEmail() {
+  // get email entry
+  const email = document.getElementById("email");
+  const emailRegex = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+$/;
+  // Clear any previous error messages
+  clearError(email);
+  // email validation
+  if (!emailRegex.test(email.value)) {
+    showErrorMessage(email, "Veuillez entrer une adresse email valide");
+    return false;
+  }
+  return true;
 }
 //check age minimum
-function validateAge(){
-let birthdate = document.getElementById("birthdate");
-let birthdateValue = Date.parse(birthdate.value.trim()); 
+function validateAge() {
+  let birthdate = document.getElementById("birthdate");
+  let birthdateValue = Date.parse(birthdate.value.trim());
   // Get current time in milliseconds (UTC)
   let currentDateMs = Date.now();
   // Get birthdate in UTC milliseconds
   // let birthdateMs = birthdate.getTime();
   // Calculate the number of milliseconds in a year
-  const msPerYear = 1000*60*60*24*365.25; // accounts for leap years
+  const msPerYear = 1000 * 60 * 60 * 24 * 365.25; // accounts for leap years
   const ageMinYears = 13;
   const ageMinMs = ageMinYears * msPerYear;
   console.log(ageMinMs);
@@ -109,79 +112,95 @@ let birthdateValue = Date.parse(birthdate.value.trim());
   let diffMs = currentDateMs - birthdateValue;
   console.log(diffMs);
   // Calculate the minimum age in milliseconds
-  if (diffMs<ageMinMs){
-  return false;
+  if (diffMs <= ageMinMs) {
+    return false;
   }
   return true;
-  }
+}
 // validate birthdate
-function validateBirthdate(){
+function validateBirthdate() {
   let birthdate = document.getElementById("birthdate");
   let birthdateValue = Date.parse(birthdate.value.trim());
   // Clear any previous error messages
   clearError(birthdate);
   // birthdate validation
-  if (isNaN (birthdateValue)){
-   showErrorMessage(birthdate, "Veuillez entrer une date de naissance valide.");
-   return false;
+  if (isNaN(birthdateValue)) {
+    showErrorMessage(
+      birthdate,
+      "Veuillez entrer une date de naissance valide."
+    );
+    return false;
   }
-  if (!validateAge()){
-   showErrorMessage(birthdate, "Vous devez avoir plus de 13 ans.")
-   return false;
+  if (!validateAge()) {
+    showErrorMessage(birthdate, "Vous devez avoir plus de 13 ans.");
+    return false;
   }
   return true;
 }
 // validate tournament participations
-function validateQuantity(){
+function validateQuantity() {
   // get quantity input
   const quantity = document.getElementById("quantity");
   // Clear any previous error messages
   clearError(quantity);
   // quantity validation
-  if (!quantity.value.match(/^[0-9]+$/)){
-  showErrorMessage(quantity, "Veuillez entrer un chiffre entre 0 et 99");
-  return false;
-}
-return true;
+  if (!quantity.value.match(/^[0-9]+$/)) {
+    showErrorMessage(quantity, "Veuillez entrer un chiffre entre 0 et 99");
+    return false;
+  }
+  return true;
 }
 // validate location
-function validateLocation(){
+function validateLocation() {
   const location = document.getElementById("location1");
   // get all location radios checked
-  const locationChecked = document.querySelectorAll('input[name="location"]:checked');
+  const locationChecked = document.querySelectorAll(
+    'input[name="location"]:checked'
+  );
   // Clear any previous error messages
   clearError(location);
   // if no radio is checked, show error message
-  if (locationChecked.length === 0){
-      showErrorMessage(location, "Veuillez sélectionner une ville.");
-      return false;
-    };
-return true;      
-};
+  if (locationChecked.length === 0) {
+    showErrorMessage(location, "Veuillez sélectionner une ville.");
+    return false;
+  }
+  return true;
+}
 // validate Terms
-function validateTerms(){
-  const termsCheckbox = document.getElementById('checkbox1');
+function validateTerms() {
+  const termsCheckbox = document.getElementById("checkbox1");
   // Clear any previous error messages
   clearError(termsCheckbox);
   // if no checkbox is checked, show error message
-  if (termsCheckbox.checked === false){
-  showErrorMessage (termsCheckbox, "Veuillez accepter les conditions d'utilisation.");
-  return false;
-  };
-return true;      
-};
+  if (termsCheckbox.checked === false) {
+    showErrorMessage(
+      termsCheckbox,
+      "Veuillez accepter les conditions d'utilisation."
+    );
+    return false;
+  }
+  return true;
+}
 //function to validate the form
 function validate() {
-  let firsNameValid=validateFirstName();
-  let lastNameValid=validateLastName();
-  let emailValid=validateEmail();
-  let birthdateValid=validateBirthdate();
-  let quantityValid=validateQuantity();
-  let locationValid=validateLocation();
-  let termsValid=validateTerms();
+  let firsNameValid = validateFirstName();
+  let lastNameValid = validateLastName();
+  let emailValid = validateEmail();
+  let birthdateValid = validateBirthdate();
+  let quantityValid = validateQuantity();
+  let locationValid = validateLocation();
+  let termsValid = validateTerms();
   //validation rules
-  if (firsNameValid && lastNameValid && emailValid && birthdateValid && quantityValid && locationValid && termsValid) {
-  return true;
+  if (
+    firsNameValid &&
+    lastNameValid &&
+    emailValid &&
+    birthdateValid &&
+    quantityValid &&
+    locationValid &&
+    termsValid
+  ) {
+    return true;
   }
 }
 
@@ -194,11 +213,12 @@ function validateModal() {
 
 /********* SUBMIT EVENT LISTENER *************/
 // Add event listener for form submit
-document.addEventListener('submit', (event) =>{
-    event.preventDefault();
-    if (validate()) {  // Call validation function 
-        validateModal();  // Show success message
-    }
+document.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (validate()) {
+    // Call validation function
+    validateModal(); // Show success message
+  }
 });
 
 /********* CLOSE MODAL *************/
@@ -206,14 +226,16 @@ document.addEventListener('submit', (event) =>{
 closeBtn.addEventListener("click", closeModal);
 function closeModal() {
   modalContentValidation.style.display = "none";
+  if (modalbg.offsetWidth >= 801) {
+    indexHeroSection.style.display = "grid";
+  } else {
+    indexHeroSection.style.display = "block";
+  }
   modalbg.style.display = "none";
-  indexTopnav.style.display = 'block';
-  indexHeroSection.style.display = 'grid';
-  indexFooter.style.display = 'block';
-
+  indexTopnav.style.display = "block";
+  indexFooter.style.display = "block";
 }
 
 closeBtnTop1.addEventListener("click", closeModal);
 closeBtn.addEventListener("click", closeModal);
 closeBtnTop2.addEventListener("click", closeModal);
-

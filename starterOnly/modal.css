@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   /* background-image: url("background.png"); */
+  /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -59,6 +60,7 @@ img {
   padding: 12px 12px;
   margin: 5px;
   text-decoration: none;
+  font-size: 1.25rem;
   font-size: 1.25rem;
   font-family: Roboto, sans-serif;
 }
@@ -106,6 +108,7 @@ img {
     right: 0;
     top: 0;
     margin-top: 0;
+    margin-top: 0;
   }
 
   .topnav.responsive a {
@@ -113,6 +116,7 @@ img {
     display: block;
     text-align: left;
   }
+}
 }
 
 main {
@@ -174,7 +178,8 @@ main {
   position: fixed;
   z-index: 1;
   left: 0;
-  top: 0;
+  /* top: 0; */
+  top: 50.6px; /*corrected to match maquette*/
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -485,6 +490,7 @@ input[data-error]::after {
   position: relative;
   text-align: left;
   min-width: 435px;
+  min-width: 435px;
 }
 .hero-content::after {
   content: "";
@@ -492,6 +498,7 @@ input[data-error]::after {
   height: 100%;
   background: #232323;
   position: absolute;
+  min-width: 435px;
   min-width: 435px;
   top: 0;
 }
@@ -521,11 +528,16 @@ input[data-error]::after {
 .hero-img {
   grid-column: span 8;
   position: relative;
+  position: relative;
 }
 .hero-img img {
   height: 100%;
   display: block;
   padding: 0;
+  /* to avoid image deformation */
+  position: absolute;
+  right: 0;
+  z-index: -1;
   /* to avoid image deformation */
   position: absolute;
   right: 0;
@@ -560,6 +572,7 @@ footer {
     display: block;
     box-shadow: unset;
     min-height: 53vh;
+    min-height: 53vh;
   }
   .hero-content {
     background: #fff;
@@ -574,16 +587,20 @@ footer {
   }
   .hero-headline {
     /* font-size: 4.5rem; */
+    /* font-size: 4.5rem; */
     white-space: normal;
   }
   .hero-text {
     width: unset;
     font-size: 1.5rem;
+    
   }
   .hero-img img {
     width: 100%; /*to match maquette*/
     border-radius: 10px;
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
     position: relative;
     z-index: 1;
   }
@@ -597,6 +614,32 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+}
+
+@media screen and (max-width:540px) {
+.hero-headline {
+  /* to solve text cutted on small formats*/
+  display: flex;
+  width: 100%; 
+  font-size: 2.4rem; /*to match maquette*/
+  }
+
+.hero-text {
+  /*to solve text cutted on small formats*/
+  display: flex;
+  width: 100%; 
+  font-size: 0.82rem; /*to match maquette*/
+  }
+
+.hero-content{
+  /*to solve text cutted on small formats*/
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px; /* to match maquette*/
+}
 }
 
 @media screen and (max-width: 540px) {

@@ -202,8 +202,7 @@ main {
   margin: 15px auto;
 }
 
-label,
-p.text-label {
+label {
   font-family: var(--font-default);
   font-size: 13.4px;
   font-weight: normal;
@@ -213,6 +212,16 @@ p.text-label {
   margin-top: 11px;
   text-align: left;
 }
+
+p.text-label {
+  font-family: var(--font-default);
+  font-size: 13.4px;
+  font-weight: normal;
+  display: inline-block;
+  margin-top: 11px;
+  text-align: left;
+}
+
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
@@ -599,6 +608,10 @@ footer {
     margin: 32px auto 10px;
     padding: 12px 35px;
   }
+
+  .checkbox-label,.checkbox2-label {
+  margin-left: 27px;
+}
 
   .copyrights {
     margin-top: 50px;

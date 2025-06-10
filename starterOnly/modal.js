@@ -76,7 +76,8 @@ function validateLastName() {
   clearError(lastName);
   // First name validation
   if (lastName.value.trim().length < 2) {
-    showErrorMessage(lastName, "Le nom doit contenir au moins deux caractères");
+    showErrorMessage(lastName, 
+      "Le nom doit contenir au moins deux caractères");
     return false;
   }
   return true;
@@ -98,21 +99,21 @@ function validateEmail() {
 //check age minimum
 function validateAge() {
   let birthdate = document.getElementById("birthdate");
+    // Get birthdate in milliseconds(UTC)
   let birthdateValue = Date.parse(birthdate.value.trim());
   // Get current time in milliseconds (UTC)
   let currentDateMs = Date.now();
-  // Get birthdate in UTC milliseconds
-  // let birthdateMs = birthdate.getTime();
   // Calculate the number of milliseconds in a year
-  const msPerYear = 1000 * 60 * 60 * 24 * 365.25; // accounts for leap years
-  const ageMinYears = 13;
+  const msPerYear = 1000 * 60 * 60 * 24 * 365.25; 
+  // minimum age set to 13 years, update if needed
+  const ageMinYears = 13; 
   const ageMinMs = ageMinYears * msPerYear;
   console.log(ageMinMs);
   // Calculate age in milliseconds
   let diffMs = currentDateMs - birthdateValue;
   console.log(diffMs);
   // Calculate the minimum age in milliseconds
-  if (diffMs <= ageMinMs) {
+  if (diffMs < ageMinMs) {
     return false;
   }
   return true;
@@ -131,6 +132,7 @@ function validateBirthdate() {
     );
     return false;
   }
+  // minimum age validation
   if (!validateAge()) {
     showErrorMessage(birthdate, "Vous devez avoir plus de 13 ans.");
     return false;
@@ -210,6 +212,18 @@ function validateModal() {
   modalContent.style.display = "none";
   modalContentValidation.style.display = "block";
 }
+// Reset each input field
+function resetForm() {
+  // Get all form inputs
+  const inputs = document.querySelectorAll(".formData input");
+  // Clear the input value
+  inputs.forEach(input => {
+    input.value = "";
+    if (input.checked = true) {
+      input.checked = false;
+    }
+  });
+}
 
 /********* SUBMIT EVENT LISTENER *************/
 // Add event listener for form submit
@@ -218,12 +232,12 @@ document.addEventListener("submit", (event) => {
   if (validate()) {
     // Call validation function
     validateModal(); // Show success message
-  }
+    resetForm(); // Reset form values
+  };
 });
 
 /********* CLOSE MODAL *************/
 // close modal form
-closeBtn.addEventListener("click", closeModal);
 function closeModal() {
   modalContentValidation.style.display = "none";
   if (modalbg.offsetWidth >= 801) {
@@ -235,7 +249,6 @@ function closeModal() {
   indexTopnav.style.display = "block";
   indexFooter.style.display = "block";
 }
-
 closeBtnTop1.addEventListener("click", closeModal);
-closeBtn.addEventListener("click", closeModal);
 closeBtnTop2.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeModal);

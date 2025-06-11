@@ -620,11 +620,17 @@ footer {
 }
 
 @media screen and (max-width:540px) {
+
+.hero-section {
+    margin-bottom: 0px;
+}
+
 .hero-headline {
   /* to solve text cutted on small formats*/
   display: flex;
   width: 100%; 
   font-size: 2.4rem; /*to match maquette*/
+  font-weight: 600;
   }
 
 .hero-text {
@@ -632,6 +638,7 @@ footer {
   display: flex;
   width: 100%; 
   font-size: 0.82rem; /*to match maquette*/
+  margin-top: 20px;
   }
 
 .hero-content{
@@ -643,38 +650,7 @@ footer {
   box-sizing: border-box;
   padding: 9px; /* to match maquette*/
 }
-}
 
-@media screen and (max-width: 540px) {
-  .hero-section {
-    margin-bottom: 0px;
-  }
-
-  .hero-headline {
-    /* to solve text cutted on small formats*/
-    display: flex;
-    width: 100%;
-    font-size: 2.4rem; /*to match maquette*/
-    font-weight: 600;
-  }
-
-  .hero-text {
-    /*to solve text cutted on small formats*/
-    display: flex;
-    width: 100%;
-    font-size: 0.82rem; /*to match maquette*/
-    margin-top: 20px;
-  }
-
-  .hero-content {
-    /*to solve text cutted on small formats*/
-    display: flex;
-    flex-direction: column;
-    min-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 9px; /* to match maquette*/
-  }
   .hero-img img {
     margin-top: 20px;
   }
@@ -686,6 +662,12 @@ footer {
     margin-top: 20px;
     font-size: 0.63rem;
   }
+}
+
+@media screen and (max-width: 381px) {
+.formData[data-error]::after {
+  font-size: 0.4em;
+}
 }
 
 @keyframes modalopen {
